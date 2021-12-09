@@ -43,6 +43,7 @@
         console.log('app init');
         this.companyInfo();
         this.initEvents();
+        this.removeCar();
       },
 
       initEvents: function initEvents(){
@@ -81,6 +82,12 @@
         $tr.appendChild($tdColor);
 
         return $fragment.appendChild($tr);
+      },
+
+      removeCar: function removeCar() {
+        var $remove = new $('[data-js="remove"]');
+        $remove.removeEventListener('click', this.createNewCar)
+        //return !createNewCar();
       },
 
       companyInfo: function companyInfo() {
