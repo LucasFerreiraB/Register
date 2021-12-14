@@ -43,7 +43,7 @@
         console.log('app init');
         this.companyInfo();
         this.initEvents();
-        this.removeCar();
+        //this.removeCar();
       },
 
       initEvents: function initEvents(){
@@ -56,7 +56,7 @@
         var $tableCar = $('[data-js="table-car"]').get();
         $tableCar.appendChild(app.createNewCar());
       },
-
+      
       createNewCar: function createNewCar() {
         var $fragment = document.createDocumentFragment();
         var $tr = document.createElement('tr');
@@ -66,6 +66,8 @@
         var $tdYear = document.createElement('td');
         var $tdPlate = document.createElement('td');
         var $tdColor = document.createElement('td');
+        var $tdOpcao = document.createElement('td');
+        var $_remove = document.createElement('button');
 
         $image.setAttribute('src', $('[data-js="image"]').get().value);
         $tdImage.appendChild($image);
@@ -74,20 +76,28 @@
         $tdYear.textContent = $('[data-js="year"]').get().value;
         $tdPlate.textContent = $('[data-js="plate"]').get().value;
         $tdColor.textContent = $('[data-js="color"]').get().value;
+        
+        $tdOpcao.appendChild($_remove);
+        $_remove.innerHTML = 'Remover';
+        $_remove.setAttribute('type', 'submit'/*$('[data-js="remove"]').get().value*/);
+        $_remove.addEventListener('click', this.removeCar, false);
+        
+
 
         $tr.appendChild($tdImage);
         $tr.appendChild($tdBrand);
         $tr.appendChild($tdYear);
         $tr.appendChild($tdPlate);
         $tr.appendChild($tdColor);
+        $tr.appendChild($tdOpcao);
+        
 
         return $fragment.appendChild($tr);
       },
 
       removeCar: function removeCar() {
-        var $remove = new $('[data-js="remove"]');
-        $remove.removeEventListener('click', this.createNewCar)
-        //return !createNewCar();
+        var $n = app.createNewCar.$tr.call(this); 
+        return $n = $tr.splice();
       },
 
       companyInfo: function companyInfo() {
