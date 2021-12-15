@@ -79,10 +79,15 @@
         
         $tdOpcao.appendChild($_remove);
         $_remove.innerHTML = 'Remover';
-        $_remove.setAttribute('type', 'submit'/*$('[data-js="remove"]').get().value*/);
-        $_remove.addEventListener('click', this.removeCar, false);
-        
-
+        $_remove.setAttribute('data-js', 'remove'/*$('[data-js="remove"]').get().value*/);
+        $_remove.addEventListener('click', function (){
+          $tr.removeChild($tdBrand);
+          $tr.removeChild($tdImage);
+          $tr.removeChild($tdYear);
+          $tr.removeChild($tdPlate);
+          $tr.removeChild($tdColor);
+          $tr.removeChild($tdOpcao);
+        }, false);
 
         $tr.appendChild($tdImage);
         $tr.appendChild($tdBrand);
@@ -95,10 +100,10 @@
         return $fragment.appendChild($tr);
       },
 
-      removeCar: function removeCar() {
-        var $n = app.createNewCar.$tr.call(this); 
-        return $n = $tr.splice();
-      },
+      /*removeCar: function removeCar() {
+        var $tableCar = $('[data-js="table-car"]').get();
+        $tableCar.removeChild(app.createNewCar());
+      },*/
 
       companyInfo: function companyInfo() {
         var ajax = new XMLHttpRequest();
