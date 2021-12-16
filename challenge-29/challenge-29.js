@@ -58,6 +58,10 @@
       },
       
       createNewCar: function createNewCar() {
+        var get = new XMLHttpRequest();
+        get.open('GET', 'http://localhost:3000');
+        get.send();
+          
         var $fragment = document.createDocumentFragment();
         var $tr = document.createElement('tr');
         var $tdImage = document.createElement('td');
