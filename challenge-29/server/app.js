@@ -11,9 +11,13 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/', function(req, res) {
+/*app.get('/', function(req, res) {
   res.json({ message: 'hi' });
-});
+});*/
+
+/*app.get('/car', function(req, res){
+  req.send()
+});*/
 
 app.use('/car', routes);
 

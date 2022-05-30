@@ -2,7 +2,13 @@
 
 var express = require('express');
 var router = express.Router();
-var data = [];
+var data = [{
+  image: 'https://www.socarrao.com.br/img/home/category1.jpg',
+  brandModel: 'abcd',
+  year: '1995',
+  plate: 'abds',
+  color: 'preto'
+}];
 
 router.get('/', function(req, res) {
   console.log('[GET] /car:', data)
@@ -22,6 +28,10 @@ router.post('/', function(req, res) {
     data
   }, null, 2))
   res.json({ message: 'success' });
+});
+
+router.get('/', function(req, res){
+  req.send(data);
 });
 
 module.exports = router;
